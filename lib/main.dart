@@ -3,12 +3,12 @@ import 'package:origin_clock/pages/choose_location.dart';
 import 'package:origin_clock/pages/home.dart';
 import 'package:origin_clock/pages/loading.dart';
 
-void main() => runApp(MaterialApp(
+void main() =>  runApp(MaterialApp(
   initialRoute: '/home',
   routes:{
     '/': (context) => Loading(),
     '/home': (context) => Home(),
-    '/location': (context) => ChoosLocation()
+    '/location': (context) => ChooseLocation()
   }
 ));
 

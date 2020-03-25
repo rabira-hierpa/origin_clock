@@ -1,33 +1,12 @@
 import 'package:flutter/material.dart';
 
-class ChoosLocation extends StatefulWidget {
+class ChooseLocation extends StatefulWidget {
   @override
-  _ChoosLocationState createState() => _ChoosLocationState();
+  _ChooseLocationState createState() => _ChooseLocationState();
 }
 
-class _ChoosLocationState extends State<ChoosLocation> {
+class _ChooseLocationState extends State<ChooseLocation> {
   int counter = 0;
-
-  void getData() async{
-    // Future in flutter is similar to promises in JavaScript
-    String username = await Future.delayed(Duration(seconds: 3),(){
-      return 'Getting user name: Yosi';
-    });
-
-    String bio = await Future.delayed(Duration(seconds: 3),(){
-      return 'Getting user bio: designer, musician & developer';
-    });
-
-    print('statment');
-
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    getData();
-
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
