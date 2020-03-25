@@ -10,12 +10,12 @@ class _ChoosLocationState extends State<ChoosLocation> {
 
   void getData() async{
     // Future in flutter is similar to promises in JavaScript
-    await Future.delayed(Duration(seconds: 3),(){
-      print('Getting user name: Yosi');
+    String username = await Future.delayed(Duration(seconds: 3),(){
+      return 'Getting user name: Yosi';
     });
 
-    Future.delayed(Duration(seconds: 3),(){
-      print('Getting user bio: designer, musician & developer');
+    String bio = await Future.delayed(Duration(seconds: 3),(){
+      return 'Getting user bio: designer, musician & developer';
     });
 
     print('statment');
