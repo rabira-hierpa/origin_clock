@@ -7,16 +7,29 @@ class ChoosLocation extends StatefulWidget {
 
 class _ChoosLocationState extends State<ChoosLocation> {
   int counter = 0;
+
+  void getData() async{
+    // Future in flutter is similar to promises in JavaScript
+    await Future.delayed(Duration(seconds: 3),(){
+      print('Getting user name: Yosi');
+    });
+
+    Future.delayed(Duration(seconds: 3),(){
+      print('Getting user bio: designer, musician & developer');
+    });
+
+    print('statment');
+
+  }
+
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    print('initState method ran');
+    getData();
+
   }
   @override
   Widget build(BuildContext context) {
-
-    print('build method ran');
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
