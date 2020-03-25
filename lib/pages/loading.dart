@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 
 class Loading extends StatefulWidget {
   @override
@@ -7,17 +10,9 @@ class Loading extends StatefulWidget {
 
 class _LoadingState extends State<Loading> {
   void getData() async{
-    // Future in flutter is similar to promises in JavaScript
-    String username = await Future.delayed(Duration(seconds: 3),(){
-      return 'Getting user name: Yosi';
-    });
-
-    String bio = await Future.delayed(Duration(seconds: 3),(){
-      return 'Getting user bio: designer, musician & developer';
-    });
-
-    print('$username - $bio');
-
+   Response response = await get('https://jsonplaceholder.typicode.com/todos/1');
+   //print(response.body);// prints a JSON String and this must buy converted to a MAP with jsonDecode
+    Map resData = jsonDecode(response.body);
   }
 
   @override
