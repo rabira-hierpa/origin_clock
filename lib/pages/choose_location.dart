@@ -1,22 +1,14 @@
 import 'package:flutter/material.dart';
 
-class ChoosLocation extends StatefulWidget {
+class ChooseLocation extends StatefulWidget {
   @override
-  _ChoosLocationState createState() => _ChoosLocationState();
+  _ChooseLocationState createState() => _ChooseLocationState();
 }
 
-class _ChoosLocationState extends State<ChoosLocation> {
+class _ChooseLocationState extends State<ChooseLocation> {
   int counter = 0;
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    print('initState method ran');
-  }
-  @override
   Widget build(BuildContext context) {
-
-    print('build method ran');
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
