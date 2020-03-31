@@ -11,7 +11,7 @@ class _LoadingState extends State<Loading> {
 
    void setupWorldTimer() async {
     WorldTimer init = WorldTimer(
-        location: 'Addis Ababa', flag: 'addis.png', url: 'Africa/Addis_Ababa');
+        location: 'Addis Ababa', flag: 'addis.png', url: 'Africa/Addis');
     await init.getTime();
     setState((){
       initTime = init.time;
