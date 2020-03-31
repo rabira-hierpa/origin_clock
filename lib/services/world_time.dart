@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart';
+import 'package:intl/intl.dart';
 import 'package:origin_clock/pages/base_api.dart';
 
 class WorldTimer {
@@ -21,8 +22,9 @@ class WorldTimer {
       // Create dataTime object
       DateTime now = DateTime.parse(dataTime);
       now = now.add(Duration(hours: int.parse(offset)));
+      print(now);
       // Set time property
-      time = now.toString();
+      time = DateFormat.jm().format(now);
     } catch (e) {
       // exception message
       print("EXECPTION CAUGHT: $e");
