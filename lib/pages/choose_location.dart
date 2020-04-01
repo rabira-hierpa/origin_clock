@@ -18,12 +18,14 @@ class _ChooseLocationState extends State<ChooseLocation> {
       body: Column(
         children: <Widget>[
           Center(
-            child: RaisedButton.icon(onPressed: (){
-              setState(() {
-                counter +=1;
-              });
-            }, icon: Icon(Icons.add), label: Text('Add'))
-          ),
+              child: RaisedButton.icon(
+                  onPressed: () {
+                    setState(() {
+                      counter += 1;
+                    });
+                  },
+                  icon: Icon(Icons.add),
+                  label: Text('Add'))),
           Center(
             child: Text(counter.toString()),
           )
