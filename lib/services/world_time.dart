@@ -8,6 +8,7 @@ class WorldTimer {
   String time; // time in the given location
   String flag; // url to asset  flag icon
   String url; // location url for api
+  bool isDaytime;
 
   WorldTimer({this.location, this.flag, this.url});
 
@@ -24,6 +25,7 @@ class WorldTimer {
       now = now.add(Duration(hours: int.parse(offset)));
       print(now);
       // Set time property
+      isDaytime = now.hour > 6 && now.hour < 20 ? true : false;
       time = DateFormat.jm().format(now);
     } catch (e) {
       // exception message
