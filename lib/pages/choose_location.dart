@@ -17,32 +17,44 @@ class _ChooseLocationState extends State<ChooseLocation> {
     WorldTimer(url: 'Asia/Seoul', location: 'Seoul', flag: 'south_korea.png'),
     WorldTimer(url: 'Asia/Jakarta', location: 'Jakarta', flag: 'indonesia.png'),
   ];
+
+  void updateTime(index) async{
+    WorldTimer instance = locations[index];
+    await instance.getTime();
+    Navigator.pop(context, {
+      'location': instance.location,
+      'time': instance.time,
+      'flag': instance.flag,
+      'isDayTime': instance.isDaytime
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
-      appBar: AppBar(
-        title: Text('Choose Location'),
-        centerTitle: true,
-        backgroundColor: Colors.indigoAccent,
-      ),
-      body: ListView.builder(
-        itemCount: locations.length,
-        itemBuilder: (context,index){
-          return Card(
-            child: Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: Row(
-                children: <Widget>[
-                  Image.asset('assets/img/' + locations[index].flag, width:50,height: 40,),
-                  SizedBox(width: 8.0,),
-                  Text(locations[index].location)
-                ],
-              ),
-            ),
-          );
-        },
-      )
-    );
+        backgroundColor: Colors.grey[200],
+        appBar: AppBar(
+          title: Text('Choose Location'),
+          centerTitle: true,
+          backgroundColor: Colors.indigoAccent,
+        ),
+        body: ListView.builder(
+          itemCount: locations.length,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 1.0,horizontal: 4.0),
+              child: Card(
+                  child: ListTile(
+                      onTap: () {
+                        updateTime(index);
+                      },
+                      title: Text(locations[index].location),
+                      leading: CircleAvatar(
+                        backgroundImage:
+                            AssetImage('assets/img/${locations[index].flag}'),
+                      ))),
+            );
+          },
+        ));
   }
 }

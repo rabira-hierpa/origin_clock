@@ -9,8 +9,7 @@ class _HomeState extends State<Home> {
   Map timeData = {};
   @override
   Widget build(BuildContext context) {
-    timeData = ModalRoute.of(context).settings.arguments;
-
+    timeData = timeData.isNotEmpty ? timeData : ModalRoute.of(context).settings.arguments;
     // Set background image
     String bgImg = timeData['isDayTime'] ? 'day.png' : 'night.png';
     Color bgColor = timeData['isDayTime'] ? Colors.blue : Color.fromARGB(255, 40, 39, 97);
@@ -60,8 +59,17 @@ class _HomeState extends State<Home> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.pushNamed(context, '/location');
+        onPressed: () async {
+          dynamic result = await Navigator.pushNamed(context, '/location');
+          setState(() {
+            timeData = {
+              'time': result['time'],
+              'location': result['location'],
+              'flag': result['flag'],
+              'isDayTime': result['isDayTime']
+            };
+          });
+          print(timeData['isDayTime']);
         },
         child: Icon(
           Icons.edit_location,
